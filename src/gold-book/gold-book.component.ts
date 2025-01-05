@@ -1,0 +1,35 @@
+import {Component, OnInit} from '@angular/core';
+import {CardComponent} from "./card/card.component";
+import {MyMessageService} from "../service/myMessage.service";
+import {MessageDto} from "../interface/message-dto";
+import {Router} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+
+@Component({
+  selector: 'app-gold-book',
+  standalone: true,
+  imports: [
+    CardComponent, HttpClientModule
+  ],
+  templateUrl: './gold-book.component.html',
+  styleUrl: './gold-book.component.css',
+  providers: [MyMessageService]
+})
+export class GoldBookComponent implements OnInit {
+messages: MessageDto[] = [];
+  constructor(private myMessageService: MyMessageService, private router: Router,) {
+
+  }
+
+  public ngOnInit() {
+    this.myMessageService.getMessage().subscribe({
+      next: (messages) => {
+        this.messages = messages;
+
+      },
+      error: () => {
+        this.router.navigate(['mariage-dalia-et-mickayel-une-erreur-est-survenue']);
+      },
+    });
+  }
+}

@@ -1,0 +1,79 @@
+<div class="global">
+
+  <form [formGroup]="messageDetails">
+    <div class="inputs_container">
+      <div class="message-area">
+        <p-floatLabel>
+    <textarea
+      (blur)="onMessageBlur($event)"
+      (input)="onMessageInput($event)"
+      [class.ng-invalid]="isMessageDirty()"
+      [class.ng-dirty]="isMessageDirty()"
+      id="float-input"
+      rows="7" cols="35"
+      formControlName="message"
+      [autoResize]="true"
+      placeholder="Saisissez votre message"
+      pInputTextarea>
+    </textarea>
+          <label for="float-input">Votre message</label>
+        </p-floatLabel>
+        @if(showEmptyTextErrorMessage()){
+          <small id="message-help">
+            {{emptyTextErrorMessage()}}
+          </small>
+        }
+      </div>
+
+      <div class="name-input">
+        <p-floatLabel>
+        <input
+          id="name"
+          pInputText
+          (blur)="onLastnameBlur($event)"
+          (input)="onLastnameInput($event)"
+          aria-describedby="name-help"
+          formControlName="name"
+          data-cy="input-user"
+          placeholder="Entrer votre nom/prénom"
+          [class.ng-invalid]="isNameDirty()"
+          [class.ng-dirty]="isNameDirty()"
+        />
+          <label for="name">Votre votre nom/prénom</label>
+        </p-floatLabel>
+        @if(showEmptyLastnameErrorMessage()){
+          <small id="lastname-help">
+            {{emptyLastnameErrorMessage()}}
+          </small>
+        }
+      </div>
+
+    </div>
+    <p-button label="Envoyer mon message" (onClick)="navigateToGoldBook()" [style]="{ width: '435px', height: '50px'}" />
+  </form>
+
+
+    <p-dialog [closable]="false" header="Votre message:" [modal]="true" [(visible)]="visible" [style]="{ width: '30rem' }">
+  <span class="confirmation">
+{{messageDetails.value.message}}
+  </span>
+
+      <div class="buttons">
+        <p-button label="modifier" severity="secondary" (click)="closeDialog()"    [style]="{ width: '150px' }" />
+        <p-button label="Confirmer l'envoi" (click)="saveMessage()"  />
+      </div>
+    </p-dialog>
+
+
+  <p-dialog [closable]="false" [modal]="true" [(visible)]="showConfirmationDialog" [style]="{ width: '30rem' }">
+  <span class="confirmation">
+Cher(e) {{messageDetails.value.name}}, merci beaucoup pour votre message
+  </span>
+
+    <div class="buttons">
+      <p-button label="Consulter le livre d'or" (click)="closeConfirmationDialog()"  />
+    </div>
+  </p-dialog>
+
+
+</div>

@@ -1,0 +1,31 @@
+<div class="countdown">
+  <div class="diamond-container">
+    <div class="diamond">
+      <span>{{ timeRemaining.days }}</span>
+    </div>
+    <h4 *ngIf="isMobile">Jours</h4>
+    <h3 *ngIf="!isMobile">Jours</h3>
+  </div>
+  <div class="diamond-container">
+    <div class="diamond">
+      <span>{{ timeRemaining.hours }}</span>
+    </div>
+    <h4 *ngIf="isMobile">Heures</h4>
+    <h3 *ngIf="!isMobile">Heures</h3>
+
+  </div>
+  <div class="diamond-container">
+    <div class="diamond">
+      <span>{{ timeRemaining.minutes }}</span>
+    </div>
+    <h4 *ngIf="isMobile">Minutes</h4>
+    <h3 *ngIf="!isMobile">Minutes</h3>
+  </div>
+  <div class="diamond-container">
+    <div class="diamond">
+      <span>{{ timeRemaining.seconds }}</span>
+    </div>
+    <h4 *ngIf="isMobile">Secondes</h4>
+    <h3 *ngIf="!isMobile">Secondes</h3>
+  </div>
+</div>

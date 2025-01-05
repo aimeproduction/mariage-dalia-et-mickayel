@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+
+
+textarea {
+  width: 435px;
+}
+textarea:hover {
+  background-color: #ebf1f2;
+}
+
+
+textarea::placeholder {
+  color: rgb(159, 161, 190);
+}

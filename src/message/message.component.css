@@ -1,0 +1,81 @@
+form {
+  height: auto;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 1px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px 0;
+  justify-content: center;
+  width: auto;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.inputs_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+input {
+  height: 50px;
+  width: 435px;
+  padding: 0 25px;
+  background-color: #ffffff;
+  color: black;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+input:hover {
+  background-color: #ebf1f2;
+}
+textarea :hover {
+  background-color: #ebf1f2;
+}
+
+input::placeholder {
+  color: rgb(159, 161, 190);
+}
+
+textarea::placeholder {
+  color: rgb(159, 161, 190);
+}
+.global{
+  width: 100%;
+  background-image: url("/assets/gold-book-message-background.webp");
+  background-size: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  height: 100vh;
+
+}
+
+.message-area, .name-input{
+  display: flex;
+  flex-direction: column;
+}
+
+small {
+  color: red;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+.buttons{
+  margin-top: 24px;
+  display: flex;
+  gap: 32px;
+}
+
+.confirmation{
+  line-height: 24px;
+}

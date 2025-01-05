@@ -1,0 +1,10 @@
+<div class="global-card">
+  @for (message of messages(); track message){
+    <div class="message-card">
+      <p class="message">{{message.message}}</p>
+      <p class="author-name">{{message.name}}</p>
+    </div>
+  }
+
+</div>
+

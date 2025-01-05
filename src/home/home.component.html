@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Soirée du mariage</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+</head>
+<body>
+
+<div class="debutImg">
+  <img class="image1" src="assets/images/img1.png" alt="image1" >
+</div>
+<ng-container>
+  <p-divider align="center" type="solid">
+    <b>Dalia &nbsp;&&nbsp; Mickayel</b>
+  </p-divider>
+
+  <div class="infos">
+      <app-countdown/>
+    </div>
+
+
+  <p-divider align="center" type="solid">
+  </p-divider>
+  <div class="titre">
+    <p class="nouveauTitre">Joignez-vous à nous !</p>
+  </div>
+  <br>
+  <div class="contenu">
+    <p class="introduction">
+      Le grand jour approche à grands pas, et certains moments de la vie ne peuvent être pleinement
+      célébrés qu'en présence des êtres qui nous sont chers. C'est avec une immense joie et une
+      profonde émotion que nous vous invitons à partager avec nous notre cérémonie de <strong>mariage civil
+      et religieux, qui se tiendra le samedi 6 juin 2025, à Douala</strong>. Votre présence sera pour nous un
+      immense honneur et contribuera à faire de cette journée un souvenir inoubliable. Ce moment
+      unique, empreint d'amour et de bonheur, marquera une étape cruciale dans nos vies, et nous
+      serions ravis de le vivre entourés de ceux qui comptent le plus pour nous. Nous espérons de tout
+      cœur pouvoir vous compter parmi nous pour célébrer cet événement exceptionnel, riche en émotions,
+      en joie et en partage.
+    </p>
+  </div>
+  <p-divider align="center" type="solid">
+  </p-divider>
+  <div class="titre">
+    <p class="nouveauTitre">Notre histoire</p>
+    Text
+  </div>
+  <p-divider align="center" type="solid">
+  </p-divider>
+  <div class="gold-book">
+      <p class="nouveauTitre">Livre d'or</p>
+      <img class="image-gold-book" src="assets/images/gold-book.webp" alt="image-gold-book" >
+    <div class="gold-book-message">
+      <p class="word">Laissez-nous un petit mot !</p>
+      <p class="gold-book-text">
+        Nous vous invitons à partager vos pensées, vœux ou anecdotes dans ce livre d’or.
+        Chaque message sera un précieux souvenir que nous garderons précieusement.
+        N’hésitez pas à écrire un mot, une blague ou meme un conseil pour la vie à deux.
+        Votre contribution compte beaucoup pour nous !</p>
+      <p-button label="laisser un mot" (onClick)="navigateToGolMessage()" />
+    </div>
+  </div>
+  <p-divider align="center" type="solid">
+  </p-divider>
+  <div class="card">
+    <p-carousel
+      [value]="listImages"
+      [numVisible]="3"
+      [numScroll]="3"
+      [circular]="true"
+      [autoplayInterval]=3000
+      [responsiveOptions]="responsiveOptions">
+      <ng-template let-image pTemplate="item">
+        <div class="border-1 surface-border border-round m-2 p-3">
+          <div class="mb-3">
+            <div class="relative mx-auto">
+              <img
+                pTooltip="Cliquer sur l'image pour zoomer"
+                tooltipPosition="top"
+                (click)="op.toggle($event)"
+                src="{{ image }}"
+                [alt]="image"
+                class="w-full border-round" />
+              <p-overlayPanel #op>
+                <ng-template pTemplate="content">
+                  <img  [src]="image" alt="Profile" width="500" class="shadow-4" />
+                </ng-template>
+              </p-overlayPanel>
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
+</ng-container>
+
+
+</body>
+</html>
