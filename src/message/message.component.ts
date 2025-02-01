@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, DestroyRef, HostListener, inject, OnInit, signal} from '@angular/core';
 import {Router} from "@angular/router";
 import {Button} from "primeng/button";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -8,6 +8,8 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {DialogModule} from "primeng/dialog";
 import {HttpClientModule} from "@angular/common/http";
 import {MyMessageService} from "../service/myMessage.service";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-message',
@@ -19,13 +21,14 @@ import {MyMessageService} from "../service/myMessage.service";
     InputTextModule,
     FloatLabelModule,
     InputTextareaModule,
-    DialogModule
+    DialogModule,
+    ProgressSpinnerModule
   ],
   templateUrl: './message.component.html',
   styleUrl: './message.component.css',
   providers: [MyMessageService]
 })
-export class MessageComponent {
+export class MessageComponent implements OnInit{
   public showEmptyTextErrorMessage = signal(false);
   public showEmptyLastnameErrorMessage = signal(false);
   public isNameDirty = signal(false);
@@ -34,9 +37,37 @@ export class MessageComponent {
   public visible = false;
   public showErrorDialog = false;
   public showConfirmationDialog = false;
+  public loading = false;
   public readonly emptyLastnameErrorMessage = signal<string>('Veuillez entrer votre nom et/ou prénom svp.');
   public readonly emptyTextErrorMessage = signal<string>('Veuillez laisser un message svp.');
   private regex = /[a-zA-Z0-9]/;
+  private destroyRef = inject(DestroyRef)
+  boxStyleDialog = signal({ width: '30rem' });
+  boxStyle = signal({ width: '435px', height: '50px' });
+  showForm = signal<boolean>(false);
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    const width = window.innerWidth;
+
+    if (width <= 767 || (width >= 768 && width <=1024)) {
+      this.boxStyle.set({ width: '60vw', height: '50px' });
+
+    }
+
+    if (width <= 767) {
+      this.boxStyleDialog.set({ width: '20rem' })
+    }
+  }
+
+  ngOnInit(): void {
+    this.onResize(new Event('resize'));
+    setTimeout(()=>{
+      this.showForm.set(true)
+    }, 1000)
+
+  }
+
 
   constructor(private router: Router, private fb: FormBuilder, private myMessageService: MyMessageService) {
     this.messageDetails = this.fb.group({
@@ -62,28 +93,34 @@ export class MessageComponent {
   }
 
   public saveMessage(): void {
-    this.myMessageService.saveMessage(this.messageDetails.value).subscribe({
+    this.loading= true;
+    this.myMessageService.saveMessage(this.messageDetails.value).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: () => {
-        this.showConfirmationDialog = true;
         this.showErrorDialog = false;
         this.visible = false;
+        this.showConfirmationDialog = true;
+        this.loading= false;
+
       },
       error: () => {
-       this.showErrorDialog = true;
         this.showConfirmationDialog = false;
         this.visible = false;
+       this.showErrorDialog = true;
+        this.loading= false;
+
       },
     });
   }
 
   closeConfirmationDialog(){
     this.showConfirmationDialog=false;
-    this.router.navigate(['mariage-dalia-et-mickayel-livre-dor']);
+    this.router.navigate(['mariage-dalia-et-mickayel']);
   }
 
   closeErrorDialog(){
     this.showErrorDialog=false;
     this.router.navigate(['mariage-dalia-et-mickayel-laisser-un-message']);
+    this.messageDetails.reset()
   }
 
   public closeDialog() {

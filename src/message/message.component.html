@@ -49,30 +49,58 @@
       </div>
 
     </div>
-    <p-button label="Envoyer mon message" (onClick)="navigateToGoldBook()" [style]="{ width: '435px', height: '50px'}" />
+    <div class="navigation">
+    <p-button label="Envoyer mon message" (onClick)="navigateToGoldBook()" [style]="boxStyle()" />
+    <p-button severity="secondary" label="Retour a l'accueuil" (click)="closeConfirmationDialog()" [style]="boxStyle()"  />
+    </div>
   </form>
 
 
-    <p-dialog [closable]="false" header="Votre message:" [modal]="true" [(visible)]="visible" [style]="{ width: '30rem' }">
-  <span class="confirmation">
+    <p-dialog [closable]="false" header="{{loading ? '' : 'Votre message:'}}" [modal]="true" [(visible)]="visible" [style]="boxStyleDialog()">
+    <div class="content">
+      @if (loading){
+        <p-progressSpinner ariaLabel="loading" />
+        <p> Envoi en cours. Veuillez patienter</p>
+
+      } @else {
+        <span class="confirmation">
 {{messageDetails.value.message}}
   </span>
-
-      <div class="buttons">
-        <p-button label="modifier" severity="secondary" (click)="closeDialog()"    [style]="{ width: '150px' }" />
-        <p-button label="Confirmer l'envoi" (click)="saveMessage()"  />
-      </div>
+        <div class="buttons">
+          <p-button label="modifier" severity="secondary" (click)="closeDialog()"    [style]="{ width: '170px' }" />
+          <p-button label="Confirmer l'envoi" (click)="saveMessage()"  />
+        </div>
+      }
+    </div>
     </p-dialog>
 
 
-  <p-dialog [closable]="false" [modal]="true" [(visible)]="showConfirmationDialog" [style]="{ width: '30rem' }">
-  <span class="confirmation">
-Cher(e) {{messageDetails.value.name}}, merci beaucoup pour votre message
+  <p-dialog [closable]="false" [modal]="true" [(visible)]="showConfirmationDialog" [style]="boxStyleDialog()">
+  <div class="message-saved">
+    <span class="confirmation">
+Merci <strong>{{messageDetails.value.name}}</strong>  pour votre message ! Il a bien été enregistré et sera inscrit dans le livre d’or.
   </span>
 
     <div class="buttons">
-      <p-button label="Consulter le livre d'or" (click)="closeConfirmationDialog()"  />
+      <p-button label="Retour a l'accueuil" (click)="closeConfirmationDialog()"  />
     </div>
+  </div>
+  </p-dialog>
+
+  <p-dialog [closable]="false" [modal]="true" [(visible)]="showErrorDialog" [style]="boxStyleDialog()">
+     <div class="content">
+      <span class="material-symbols-outlined" [style]="{ color: 'red' }">
+close
+</span>
+    <span class="error-dialog">
+Une erreur s’est malheureusement produite lors de l’envoi de votre message. Veuillez réessayer.
+    Si le problème persiste, contactez-nous.
+  </span>
+
+    <div class="buttons">
+      <p-button label="Réessayer"  (click)="closeErrorDialog()"  />
+    </div>
+     </div>
   </p-dialog>
 
 

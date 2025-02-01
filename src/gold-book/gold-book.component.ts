@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DestroyRef, inject, OnInit} from '@angular/core';
 import {CardComponent} from "./card/card.component";
 import {MyMessageService} from "../service/myMessage.service";
 import {MessageDto} from "../interface/message-dto";
 import {Router} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-gold-book',
@@ -17,12 +18,14 @@ import {HttpClientModule} from "@angular/common/http";
 })
 export class GoldBookComponent implements OnInit {
 messages: MessageDto[] = [];
+private destroyRef = inject(DestroyRef)
+
   constructor(private myMessageService: MyMessageService, private router: Router,) {
 
   }
 
   public ngOnInit() {
-    this.myMessageService.getMessage().subscribe({
+    this.myMessageService.getMessage().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (messages) => {
         this.messages = messages;
 

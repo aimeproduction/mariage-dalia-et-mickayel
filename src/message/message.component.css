@@ -14,6 +14,12 @@ form {
   margin-right: 25%;
 }
 
+.message-saved{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .inputs_container{
   display: flex;
   flex-direction: column;
@@ -76,6 +82,59 @@ small {
   gap: 32px;
 }
 
-.confirmation{
+.confirmation, .error-dialog{
   line-height: 24px;
+}
+
+
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-symbols-outlined{
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Tablet */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+
+  input {
+    width: 60vw;
+  }
+  form {
+    width: 80vw;
+  }
+}
+
+/* Handy */
+@media only screen and (max-device-width: 767px) {
+
+  input {
+    width: 60vw;
+    font-size: 15px;
+  }
+
+  .buttons{
+   flex-direction: column;;
+    margin-top: 24px;
+    display: flex;
+    gap: 32px;
+  }
+  form {
+    width: 80vw;
+  }
+
 }

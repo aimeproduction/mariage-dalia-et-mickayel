@@ -5,29 +5,35 @@ body {
   width: 100%;
 }
 .word{
+  font-weight: bold;
   margin-bottom: 0;
 }
 
 .gold-book-text{
-  margin-top: 16px
+  margin-top: 16px;
+  line-height: 2.5;
+  word-spacing: 0.5em;
 }
 
 .introduction{
-  font-size: 35px;
+  font-size: 18px;
   text-align: justify;
   width: 95%;
-  line-height: 1.5;
-  word-spacing: 0.3em;
-  font-family: "Great Vibes", "cursive" , sans-serif;
-
+  line-height: 2.5;
+  word-spacing: 0.5em;
+  font-family: "Verdana", "cursive" , sans-serif;
+color: black;
 }
 
+.space{
+  margin-bottom: 32px;
+}
 .gold-book-message{
-    font-size: 35px;
+    font-size: 18px;
     text-align: justify;
-    line-height: 1.5;
-    word-spacing: 0.3em;
-    font-family: "Great Vibes", "cursive" , sans-serif;
+    line-height: 2.5;
+    word-spacing: 0.5em;
+    font-family: "Verdana", "cursive" , sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +42,7 @@ p.introduction{
   margin-bottom: 32px;
   margin-top: 32px;
 }
+
 
 
 
@@ -53,7 +60,7 @@ b{
   background-color: rgb(239, 243, 248);
   font-size: 65px;
   color: darkgoldenrod;
-  font-family:  "Great Vibes", "cursive" , sans-serif;
+  font-family:  "Verdana", "cursive" , sans-serif;
 }
 
 
@@ -67,8 +74,8 @@ img {
 }
 
 .image-gold-book{
-  width: 600px;
-  margin: 0 auto;
+  width: 500px;
+  margin: 32px auto 0;
 }
 .titre{
   margin-top: 30px;
@@ -81,6 +88,11 @@ img {
   padding-right: 22%;
   margin-top: 25px
 }
+.notre-histoire{
+  margin-top: 32px;
+  padding-left: 22%;
+  padding-right: 22%;
+}
 .contenu, .gold-book {
   width: 100%;
   padding-left: 22%;
@@ -92,12 +104,13 @@ img {
   margin: 40px 24% 40px 22%;
 }
 .nouveauTitre{
-  margin: 32px 28% 0;
-  color: deeppink;
+  font-weight: bold;
+  margin:  0;
+  color: darkgoldenrod;
   font-size: 50px;
   display: flex;
   justify-content: center;
-  font-family:  "Times New Roman", sans-serif;
+  font-family:  "Verdana", sans-serif;
 }
 .all{
   display: flex;
@@ -119,8 +132,8 @@ img {
 /* Tablet */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 
-  .introduction{
-    font-size: 27px;
+  .introduction, .gold-book-text{
+    font-size: 16px;
   }
 
   .image1{
@@ -155,26 +168,35 @@ img {
     margin-right: 14%;
     font-size: 40px;
   }
+
+  .gold-book{
+    padding-left: 14%;
+    padding-right: 14%;
+
+  }
+  .notre-histoire{
+    padding-left: 14%;
+    padding-right: 10%;
+  }
 }
 
 /* Handy */
 @media only screen and (max-device-width: 767px) {
 
-  .introduction{
-    font-size: 27px;
+  .introduction, .gold-book-text{
+    font-size: 14px;
       margin-bottom: 16px !important;
       margin-top: 16px !important;
+    line-height: 2.5;
+    word-spacing: 0.3em;
   }
 
-  .informations{
-    font-size: 25px;
-  }
   .image1{
     width: 300px;
   }
 
   b{
-    font-size: 37px;
+    font-size: 27px;
   }
   .card{
     margin: 40px 8% 40px;
@@ -196,7 +218,24 @@ img {
   .nouveauTitre{
     margin-left: 10%;
     margin-right: 10%;
-    font-size: 27px;
+    font-size: 21px;
   }
 
+  .gold-book{
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 14px;
+    padding-left: 0
+  }
+
+  .notre-histoire{
+    padding: 0;
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  .word{
+    margin-bottom: 0;
+    font-size: 15px;
+    word-spacing: 0.3rem;
+  }
 }

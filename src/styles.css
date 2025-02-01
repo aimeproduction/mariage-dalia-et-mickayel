@@ -15,3 +15,22 @@ textarea:hover {
 textarea::placeholder {
   color: rgb(159, 161, 190);
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  textarea {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-device-width: 767px) {
+  textarea {
+    width: 60vw;
+  }
+}
+.p-button.p-button-secondary{
+  color: #475569;
+  background-color: #ffffff;
+}
+.p-button.p-button-secondary:hover {
+  background-color: #ffffff;
+}

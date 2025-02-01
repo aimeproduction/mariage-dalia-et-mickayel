@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MessageDto} from "../interface/message-dto";
-import {Observable} from "rxjs";
+import {Observable, retry} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,14 @@ private apiUrl = "http://localhost:3000/message";
   constructor(private http: HttpClient) { }
 
   public saveMessage(message: MessageDto): Observable<MessageDto> {
-    return this.http.post<MessageDto>(this.apiUrl, message)
+    return this.http.post<MessageDto>(this.apiUrl, message).pipe(
+      retry(2)
+    );
   }
 
   public getMessage(): Observable<MessageDto[]> {
-    return this.http.get<MessageDto[]>(this.apiUrl)
+    return this.http.get<MessageDto[]>(this.apiUrl).pipe(
+      retry(2)
+    );
   }
 }

@@ -1,5 +1,5 @@
-import {Component, DestroyRef, inject, OnDestroy, OnInit} from '@angular/core';
-import {interval, Subscription} from "rxjs";
+import {Component, DestroyRef, inject, OnInit} from '@angular/core';
+import {interval} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {CommonModule} from "@angular/common";
 
@@ -12,7 +12,7 @@ import {CommonModule} from "@angular/common";
 })
 export class CountdownComponent implements OnInit {
   isMobile = false;
-  targetDate = new Date('2025-06-07T00:00:00');
+  targetDate = new Date('2025-05-31T15:30:00');
   timeRemaining = {
     days: 0,
     hours: 0,

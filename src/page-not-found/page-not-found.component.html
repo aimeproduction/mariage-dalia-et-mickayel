@@ -1,9 +1,9 @@
-<ng-container >
-  <div>
-    <img class="image2" src="assets/images/mariage/guestNotFound.png" alt="image2" >
-  </div>
-  <p class="guestNotFound">Désolé, soit une erreur s'est produite lors du chargement de vos données, soit nous n'avons
-    malheureusement pas pu vous trouver dans la liste des invités. Nous vous prions de scanner de nouveau
-    votre QR code et de contacter les organisateurs de l'événement si l'erreur persiste.
+<div class="content">
+    <img class="image2" src="assets/guestNotFound.png" alt="image2" >
+
+  <p class="guestNotFound">Oups ! La page que vous cherchez n'existe pas.
+    Peut-être avez-vous suivi un lien incorrect ou saisi une mauvaise adresse.
+    Retournez à l'accueil et essayez de nouveau !
   </p>
-</ng-container>
+  <p-button label="Retour a l'accueil" (onClick)="navigateToHome()" />
+</div>
