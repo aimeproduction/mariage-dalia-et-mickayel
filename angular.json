@@ -63,7 +63,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Dalia-mickayel:build:production"
+              "buildTarget": "Dalia-et-mickayel:build:production"
             },
             "development": {
               "buildTarget": "Dalia-et-mickayel:build:development"

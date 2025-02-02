@@ -76,6 +76,7 @@ export class MessageComponent implements OnInit{
     })
   }
 
+
   public navigateToGoldBook(): void {
     if(!this.regex.test(this.messageDetails.value.name)){
       this.showEmptyLastnameErrorMessage.set(true);
@@ -88,7 +89,6 @@ export class MessageComponent implements OnInit{
     if(this.messageDetails.valid){
       this.visible = true;
     }
-
   }
 
   public saveMessage(): void {
