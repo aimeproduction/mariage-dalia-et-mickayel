@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MessageDto} from "../interface/message-dto";
 import {Observable, retry} from "rxjs";
+import {environment} from "../environments/environment";
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyMessageService {
-private apiUrl = "http://localhost:3000/message";
+private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   public saveMessage(message: MessageDto): Observable<MessageDto> {

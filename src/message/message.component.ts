@@ -87,14 +87,14 @@ export class MessageComponent implements OnInit{
     }
     if(this.messageDetails.valid){
       this.visible = true;
-    //  this.router.navigate(['mariage-dalia-et-mickayel-livre-dor']);
     }
 
   }
 
   public saveMessage(): void {
     this.loading= true;
-    this.myMessageService.saveMessage(this.messageDetails.value).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
+    this.myMessageService.saveMessage(this.messageDetails.value).pipe(
+      takeUntilDestroyed(this.destroyRef)).subscribe({
       next: () => {
         this.showErrorDialog = false;
         this.visible = false;
