@@ -49,12 +49,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
+              "outputHashing": "all",
+              "baseHref": "/dalia-et-mickayel/"
             }
           },
           "defaultConfiguration": "production"
