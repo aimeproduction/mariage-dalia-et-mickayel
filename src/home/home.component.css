@@ -184,7 +184,7 @@ img {
 @media only screen and (max-device-width: 767px) {
 
   .introduction, .gold-book-text{
-    font-size: 14px;
+    font-size: 16px;
       margin-bottom: 16px !important;
       margin-top: 16px !important;
     line-height: 2.5;
@@ -235,7 +235,7 @@ img {
   }
   .word{
     margin-bottom: 0;
-    font-size: 15px;
+    font-size: 16px;
     word-spacing: 0.3rem;
   }
 }
