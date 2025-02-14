@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://mariage-dm.onrender.com/message'
+  apiUrl: 'https://ticket-api.afrogeek.fr/api/forms'
 }

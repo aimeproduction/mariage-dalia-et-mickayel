@@ -20,11 +20,10 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
   public listImages: string[] = [
     'assets/images/img2.png',
-    'assets/images/img3.png',
-    'assets/images/img4.png',
+    'assets/images/img3.jpg',
+    'assets/images/img4.jpg',
     'assets/images/img5.jpg',
     'assets/images/img6.png',
-    'assets/images/img7.png',
     'assets/images/img8.png',
   ];
   boxStyle = signal({ width: '30vw', height: '50px' });

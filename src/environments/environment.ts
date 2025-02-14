@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/message'
+  apiUrl: 'https://ticket-api.afrogeek.fr/api/forms'
 }
