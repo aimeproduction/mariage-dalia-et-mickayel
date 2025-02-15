@@ -61,6 +61,9 @@ export class MessageComponent implements OnInit{
   }
 
   ngOnInit(): void {
+ /*   this.myMessageService.deleteMessage().pipe().subscribe({
+
+    })*/
     this.onResize(new Event('resize'));
     setTimeout(()=>{
       this.showForm.set(true)
@@ -114,12 +117,12 @@ export class MessageComponent implements OnInit{
 
   closeConfirmationDialog(){
     this.showConfirmationDialog=false;
-    this.router.navigate(['mariage-dalia-et-mickayel']);
+    this.router.navigate(['accueil']);
   }
 
   closeErrorDialog(){
     this.showErrorDialog=false;
-    this.router.navigate(['mariage-dalia-et-mickayel-laisser-un-message']);
+    this.router.navigate(['laisser-un-message']);
     this.messageDetails.reset()
   }
 

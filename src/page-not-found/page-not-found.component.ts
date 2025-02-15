@@ -18,6 +18,6 @@ export class PageNotFoundComponent {
   }
 
   navigateToHome(){
-    this.router.navigate(['mariage-dalia-et-mickayel']);
+    this.router.navigate(['accueil']);
   }
 }

@@ -7,22 +7,22 @@ import {ErreurComponent} from "../erreur/erreur.component";
 
 export const routes: Routes = [
   {
-    path: '', redirectTo: 'mariage-dalia-et-mickayel', pathMatch: "full"
+    path: '', redirectTo: 'accueil', pathMatch: "full"
   },
   {
-    path: 'mariage-dalia-et-mickayel', component: HomeComponent
+    path: 'accueil', component: HomeComponent
   },
   {
     path: 'page-introuvable', component: PageNotFoundComponent
   },
   {
-    path: 'mariage-dalia-et-mickayel-livre-dor', component: GoldBookComponent
+    path: 'livre-dor', component: GoldBookComponent
   },
   {
-    path: 'mariage-dalia-et-mickayel-laisser-un-message', component: MessageComponent
+    path: 'laisser-un-message', component: MessageComponent
   },
   {
-    path: 'mariage-dalia-et-mickayel-une-erreur-est-survenue', component: ErreurComponent
+    path: 'une-erreur-est-survenue', component: ErreurComponent
   },
   { path: '**', redirectTo: 'page-introuvable' },
 

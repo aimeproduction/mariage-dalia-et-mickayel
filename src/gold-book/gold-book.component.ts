@@ -31,7 +31,7 @@ private destroyRef = inject(DestroyRef)
 
       },
       error: () => {
-        this.router.navigate(['mariage-dalia-et-mickayel-une-erreur-est-survenue']);
+        this.router.navigate(['une-erreur-est-survenue']);
       },
     });
   }

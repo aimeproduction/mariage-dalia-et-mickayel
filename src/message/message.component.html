@@ -51,7 +51,7 @@
     </div>
     <div class="navigation">
     <p-button label="Envoyer mon message" (onClick)="navigateToGoldBook()" [style]="boxStyle()" />
-    <p-button severity="secondary" label="Retour a l'accueuil" (click)="closeConfirmationDialog()" [style]="boxStyle()"  />
+    <p-button severity="secondary" label="Retour a l'accueil" (click)="closeConfirmationDialog()" [style]="boxStyle()"  />
     </div>
   </form>
 
@@ -78,6 +78,9 @@
 
   <p-dialog [closable]="false" [modal]="true" [(visible)]="showConfirmationDialog" [style]="boxStyleDialog()">
   <div class="message-saved">
+    <span class="material-symbols-outlined" [style]="{ color: 'green' }">
+check_circle
+</span>
     <span class="confirmation">
 Merci <strong>{{messageDetails.value.name}}</strong>  pour votre message ! Il a bien été enregistré et sera inscrit dans le livre d’or.
   </span>

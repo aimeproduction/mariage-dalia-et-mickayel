@@ -71,7 +71,7 @@ constructor(private router: Router) {
   }
 
   public navigateToGolMessage(): void {
-    this.router.navigate(['mariage-dalia-et-mickayel-laisser-un-message']);
+    this.router.navigate(['laisser-un-message']);
   }
 
 }

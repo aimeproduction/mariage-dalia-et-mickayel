@@ -24,4 +24,10 @@ private apiUrl = environment.apiUrl;
       retry(2)
     );
   }
+
+  public deleteMessage(): Observable<MessageDto> {
+    return this.http.delete<MessageDto>(this.apiUrl + '/4').pipe(
+      retry(2)
+    );
+  }
 }
